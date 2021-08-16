@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 Counter.propTypes = {
 
 };
 
-function Counter(props) {
+function Counter() {
     const [count, setCount] = useState(0);
     return (
         <div>
