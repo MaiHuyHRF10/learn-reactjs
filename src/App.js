@@ -6,14 +6,13 @@ import { useEffect } from "react";
 import productApi from "./api/productApi";
 
 function App() {
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const productList = await productApi.getAll();
-      console.log(productList);
-    };
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const productList = await productApi.getAll();
+  //   };
 
-    fetchProducts();
-  }, []);
+  //   fetchProducts();
+  // }, []);
 
   return (
     <div className="App">
