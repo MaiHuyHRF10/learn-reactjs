@@ -58,16 +58,14 @@ function ListPage() {
     setTodoList(newTodoList);
   };
 
-  const handleTodoFormSubmit = (formValue) => {
-    console.log(formValue);
+  const handleTodoFormSubmit = (values) => {
     const newTodo = {
-      ...formValue,
       id: todoList.length + 1,
+      title: values.title,
+      status: "new",
     };
-    const newTodoList = [...todoList];
 
-    newTodoList.push(newTodo);
-
+    const newTodoList = [...todoList, newTodo];
     setTodoList(newTodoList);
   };
 
@@ -120,6 +118,7 @@ function ListPage() {
         <button onClick={handleShowNewClick}>Show new</button>
       </div>
 
+      <h3>What to do ???</h3>
       <TodoForm onSubmit={handleTodoFormSubmit} />
     </div>
   );

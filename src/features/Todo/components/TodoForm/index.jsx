@@ -1,42 +1,44 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import React from "react";
+import { useForm } from "react-hook-form";
+import InputField from "../../../../components/form-controls/InputField";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 TodoForm.propTypes = {
-    onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 TodoForm.defaultProps = {
-    onSubmit: null,
-}
+  onSubmit: null,
+};
 
 function TodoForm(props) {
+  const schema = yup.object().shape({
+    title: yup.string().required("please enter your title"),
+  });
+
+  const form = useForm({
+    defaultValues: {
+      title: "",
+    },
+    resolver: yupResolver(schema),
+  });
+
+  const handleSubmit = (values) => {
     const { onSubmit } = props;
-    const [value, setValue] = useState('');
-
-    function handleValueChange(e) {
-        setValue(e.target.value);
+    if (onSubmit) {
+      onSubmit(values);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    form.reset();
+  };
 
-        if (!onSubmit) return;
-        const formValue = {
-            title: value,
-        }
-
-        onSubmit(formValue);
-
-        setValue('');
-    }
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <input type="text"
-                value={value}
-                onChange={handleValueChange} />
-        </form>
-    );
+  return (
+    <form onSubmit={form.handleSubmit(handleSubmit)}>
+      <InputField name="title" label="Todo" form={form} />
+    </form>
+  );
 }
 
 export default TodoForm;
