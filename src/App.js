@@ -4,6 +4,7 @@ import AlbumFeature from "./features/Album/pages";
 import NotFound from "./components/NotFound";
 import { useEffect } from "react";
 import productApi from "./api/productApi";
+import CounterFeature from "./features/Counter";
 
 function App() {
   // useEffect(() => {
@@ -28,11 +29,11 @@ function App() {
       <Switch>
         <Redirect from="/home" to="/" exact></Redirect>
         <Redirect from="/post-list/:postId" to="/posts/:postId" exact></Redirect>
-        <Route path="/todos" component={TodoFeature} />
+        <Route path="/" component={CounterFeature} exact />
+        <Route path="/todos" component={TodoFeature} exact />
+        <Route path="/album" component={AlbumFeature} exact />
         <Route component={NotFound} />;
       </Switch>
-      <Route path="/album" component={AlbumFeature} exact />
-      Footer
     </div>
   );
 }
