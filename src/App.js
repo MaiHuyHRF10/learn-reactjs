@@ -1,10 +1,9 @@
-import { Link, NavLink, Redirect, Route, Switch } from "react-router-dom";
-import TodoFeature from "./features/Todo/pages";
-import AlbumFeature from "./features/Album/pages";
+import Header from "components/Header";
+import { Redirect, Route, Switch } from "react-router-dom";
 import NotFound from "./components/NotFound";
-import { useEffect } from "react";
-import productApi from "./api/productApi";
+import AlbumFeature from "./features/Album/pages";
 import CounterFeature from "./features/Counter";
+import TodoFeature from "./features/Todo/pages";
 
 function App() {
   // useEffect(() => {
@@ -17,15 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      Header
-      <p>
-        <Link to="/todos">TodoList</Link>
-      </p>
-      <p>
-        <NavLink to="/album" activeClassName="now">
-          Album
-        </NavLink>
-      </p>
+      <Header />
+
       <Switch>
         <Redirect from="/home" to="/" exact></Redirect>
         <Redirect from="/post-list/:postId" to="/posts/:postId" exact></Redirect>

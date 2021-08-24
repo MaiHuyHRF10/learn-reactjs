@@ -21,8 +21,10 @@ function CounterFeature(props) {
   return (
     <div>
       Counter: {count}
-      <button onClick={handleIncreaseClick}>Increase</button>
-      <button onClick={handleDecreaseClick}>Decrease</button>
+      <div>
+        <button onClick={handleIncreaseClick}>Increase</button>
+        <button onClick={handleDecreaseClick}>Decrease</button>
+      </div>
     </div>
   );
 }

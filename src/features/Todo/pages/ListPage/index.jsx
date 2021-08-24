@@ -40,12 +40,12 @@ function ListPage() {
     setFilteredStatus(params.status || "all");
   }, [location.search]);
 
-  const handleOnClickToDelete = (index) => {
-    const newTodolist = [...todoList];
-    newTodolist.splice(index, 1);
+  // const handleOnClickToDelete = (index) => {
+  //   const newTodolist = [...todoList];
+  //   newTodolist.splice(index, 1);
 
-    setTodoList(newTodolist);
-  };
+  //   setTodoList(newTodolist);
+  // };
 
   const handleTodoClickToChangeStatus = (index) => {
     const newTodoList = [...todoList];
