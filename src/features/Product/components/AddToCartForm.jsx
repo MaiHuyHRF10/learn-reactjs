@@ -32,7 +32,7 @@ function AddToCartForm({ onSubmit = null }) {
     }
   };
   return (
-    <form onSubmit={form.handleSubmit(handleSubmit)}>
+    <form onSubmit={form.handleSubmit(handleSubmit)} size="small">
       <QuantityField name="quantity" form={form} />
 
       <Button

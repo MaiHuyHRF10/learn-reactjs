@@ -36,7 +36,7 @@ function QuantityField(props) {
   const hasError = !!errors[name];
 
   return (
-    <FormControl error={hasError} fullWidth variant="outlined" size="small">
+    <FormControl error={hasError} fullWidth variant="standard" size="small">
       <Typography className={classes.quantity}>Số Lượng</Typography>
 
       <Controller
@@ -56,7 +56,6 @@ function QuantityField(props) {
             <OutlinedInput
               id={name}
               type="number"
-              variant="outlined"
               value={value}
               onChange={onChange}
               onBlur={onBlur}
